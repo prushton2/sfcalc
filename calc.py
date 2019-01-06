@@ -84,4 +84,4 @@ while (1):
 
     except:
         print("Either an internal error occurred, or a user error occurred")
-        print("Error on input line:", ln - 1, "command:", txt)
+        print("Error on input:", ln - 1, "command:", txt)
