@@ -5,11 +5,24 @@ def prin(varl, vall, vatl):
 
 
 def ls(varl, vall):
+    """Print all elements in variable list with their complement in value list.
+
+    Keyword arguments:
+    varl -- the list of variables
+    vall -- the list of values
+    """
     for i in range(len(varl)):
         print(varl[i], "=", vall[i])
 
 
 def myPrint(y, varl, vall):
+    """Print element y in variable list with their complement in value list.
+
+    Keyword arguments:
+    y    -- the element to print
+    varl -- the list of variables
+    vall -- the list of values
+    """
     for i in range(len(y)):
         item = y[i]
         if "'" in item:
@@ -25,6 +38,14 @@ def myPrint(y, varl, vall):
 
 
 def set(y, varl, vall, vatl):
+    """Set element y in variable list with their complement in value list.
+
+    Keyword arguments:
+    y    -- the element to set
+    varl -- the list of variables
+    vall -- the list of values
+    valt -- ???
+    """
     if (len(y) != 3):
         print("Set uses 3 parameters, not", len(y))
     else:
@@ -42,6 +63,13 @@ def set(y, varl, vall, vatl):
 
 
 def math(y, varl, vatl):
+    """Print y in variable list.
+
+    Keyword arguments:
+    y    -- the element to print
+    varl -- the list of variables
+    valt -- ???
+    """
     for item in y:
         if item in varl:
             pos = varl.index(item)
