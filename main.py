@@ -1,78 +1,37 @@
-def prin(varl, vall, vatl):
-    print(varl)
-    print(vall)
-    print(vatl)
+debug = False #A debug mode that will print any messages using the dprint command
 
 
-def ls(varl, vall):
-    """Print all elements in variable list with their complement in value list.
-
-    Keyword arguments:
-    varl -- the list of variables
-    vall -- the list of values
-    """
-    for i in range(len(varl)):
-        print(varl[i], "=", vall[i])
+def dprint(ipt):   #ipt = input, use as a tuple
+    if (debug):
+        print('DEBUG:', ipt)
 
 
-def myPrint(y, varl, vall):
-    """Print element y in variable list with their complement in value list.
-
-    Keyword arguments:
-    y    -- the element to print
-    varl -- the list of variables
-    vall -- the list of values
-    """
-    for i in range(len(y)):
-        item = y[i]
-        if "'" in item:
-            item = item.replace("'", "")
-            print(item)
-        else:
-            if item in varl:
-                pos = varl.index(item)
-                print(vall[pos])
-            else:
-                print("Invalid Variable:", item)
-    print("")
-
-
-def set(y, varl, vall, vatl):
-    """Set element y in variable list with their complement in value list.
-
-    Keyword arguments:
-    y    -- the element to set
-    varl -- the list of variables
-    vall -- the list of values
-    valt -- ???
-    """
-    if (len(y) != 3):
-        print("Set uses 3 parameters, not", len(y))
+def math(ipt):   #input a string in the format of '10 + 5'
+    dprint(ipt)
+    problem = ipt.split(" ")  #creates problem as a list of ipt split up at each ' '
+    problem2 = []
+    operator = None
+    for i in problem:
+        try:     #looks for integers and prints them
+            float(i)
+            dprint(('integer found:', float(i)))
+            problem2.append(float(i))
+        except:
+            dprint(('Non integer found', i))
+            operator = i
+    if operator == '+':
+        return problem2[0] + problem2[1]
+    elif operator == '-':
+        return problem2[0] - problem2[1]
+    elif operator == '*':
+        return problem2[0] * problem2[1]
+    elif operator == '/':
+        return problem2[0] / problem2[1]
     else:
-        var = y[0]
-        var = var.replace("'", "")
-        print("Variable:", var)
-        if (var in varl):
-            vpos = varl.index(var)
-            vall[vpos] = y[1]
-            vatl[vpos] = y[2]
-        else:
-            varl.append(var)
-            vall.append(y[1])
-            vatl.append(y[2])
+        return("Invalid Operator")
 
 
-def math(y, varl, vatl):
-    """Print y in variable list.
+print(math('5 + 10'))
 
-    Keyword arguments:
-    y    -- the element to print
-    varl -- the list of variables
-    valt -- ???
-    """
-    for item in y:
-        if item in varl:
-            pos = varl.index(item)
-            if vatl[pos] == "int":
-                print('kk')
-    print(int(y[0]) + int(y[1]))
+
+
